@@ -1,6 +1,5 @@
 package com.tournament.data.golf.domain.model
 
-import com.tournament.data.golf.adapters.api.dto.dataSource.DataSource
 import java.time.Instant
 
 data class TournamentDomain(
@@ -10,6 +9,6 @@ data class TournamentDomain(
     val golfCourseName: String,
     val hostCountry: String,
     val numberOfRounds: Int,
-    val tournamentDataSource: DataSource,
-    val additionalData: Map<String, String>
+    val tournamentDataSource: DataSourceDomain
+//    val additionalData: Map<String, String>
 )
