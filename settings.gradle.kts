@@ -1,1 +1,1 @@
-rootProject.name = "golf"
+rootProject.name = "tournament-data"
