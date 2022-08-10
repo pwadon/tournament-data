@@ -4,7 +4,7 @@ import com.tournament.data.golf.domain.model.TournamentDomain
 import com.tournament.data.golf.domain.ports.primary.TournamentCrudPort
 
 class TournamentCrudAdapter(
-    var tournamentPersistencePort: TournamentPersistencePort
+//    var tournamentPersistencePort: TournamentPersistencePort
 ) : TournamentCrudPort {
 
     override fun save(entity: TournamentDomain): TournamentDomain {

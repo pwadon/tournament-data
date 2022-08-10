@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
+@RestController("/tournament")
 class GolfTournamentController(
     var tournamentApiService: TournamentApiService
 ) {
 
-    @PostMapping("/add")
-    fun addTournament(
+    @PostMapping("/create")
+    fun createTournament(
         @RequestParam dataSource: DataSource,
         @RequestBody tournament: String
     ): ResponseEntity<Tournament> {
         return ResponseEntity<Tournament>(
-            tournamentApiService.addTournament(dataSource, tournament),
+            tournamentApiService.createTournament(dataSource, tournament),
             HttpStatus.CREATED
         )
     }
