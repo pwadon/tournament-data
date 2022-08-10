@@ -1,6 +1,7 @@
 package com.tournament.data.golf.adapters.persistence.entity
 
 import org.hibernate.annotations.Type
+import org.hibernate.annotations.TypeDef
 import java.time.Instant
 import java.util.UUID
 import javax.persistence.Column
@@ -12,6 +13,7 @@ import javax.persistence.Table
 
 @Entity(name = "tournament")
 @Table(name = "tournament", schema = "tournaments")
+@TypeDef(name = "data_source", typeClass = PostgresSQLEnumType::class)
 data class TournamentPo(
     @Id val id: UUID,
     val externalId: String,
