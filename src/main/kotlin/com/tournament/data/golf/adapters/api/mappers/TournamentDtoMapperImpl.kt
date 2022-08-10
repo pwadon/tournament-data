@@ -1,6 +1,9 @@
 package com.tournament.data.golf.adapters.api.mappers
 
+import com.tournament.data.golf.adapters.api.dto.dataSource.DataSource
 import com.tournament.data.golf.adapters.api.dto.tournament.Tournament
+import com.tournament.data.golf.adapters.api.dto.tournament.TournamentDto
+import com.tournament.data.golf.domain.model.DataSourceDomain
 import com.tournament.data.golf.domain.model.TournamentDomain
 import org.springframework.stereotype.Component
 
@@ -14,12 +17,35 @@ class TournamentDtoMapperImpl : TournamentDtoMapper {
             golfCourseName = tournament.golfCourseName,
             hostCountry = tournament.hostCountry,
             numberOfRounds = tournament.numberOfRounds,
-            tournamentDataSource = tournament.tournamentDataSource,
-            additionalData = tournament.additionalData
+            tournamentDataSource = dataSourceToDataSourceDomain(tournament.tournamentDataSource)
+//            additionalData = tournament.additionalData
         )
     }
 
-    override fun toDto(tournamentDomain: TournamentDomain): Tournament {
-        TODO("Not yet implemented")
+    override fun toDto(tournamentDomain: TournamentDomain): TournamentDto {
+        return TournamentDto(
+            externalId = tournamentDomain.externalId,
+            tournamentStartDate = tournamentDomain.tournamentStartDate,
+            tournamentEndDate = tournamentDomain.tournamentEndDate,
+            golfCourseName = tournamentDomain.golfCourseName,
+            hostCountry = tournamentDomain.hostCountry,
+            numberOfRounds = tournamentDomain.numberOfRounds,
+            tournamentDataSource = dataSourceDomainToDataSource(tournamentDomain.tournamentDataSource)
+//            additionalData = tournamentDomain.additionalData
+        )
+    }
+
+    override fun dataSourceToDataSourceDomain(dataSource: DataSource): DataSourceDomain {
+        return when (dataSource) {
+            DataSource.DATA_SOURCE_1 -> DataSourceDomain.DATA_SOURCE_1
+            DataSource.DATA_SOURCE_2 -> DataSourceDomain.DATA_SOURCE_2
+        }
+    }
+
+    override fun dataSourceDomainToDataSource(dataSourceDomain: DataSourceDomain): DataSource {
+        return when (dataSourceDomain) {
+            DataSourceDomain.DATA_SOURCE_1 -> DataSource.DATA_SOURCE_1
+            DataSourceDomain.DATA_SOURCE_2 -> DataSource.DATA_SOURCE_2
+        }
     }
 }
