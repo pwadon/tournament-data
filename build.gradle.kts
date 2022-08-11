@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val requiredCodeCoverage = BigDecimal("0.5")
+
 plugins {
     val springBootVersion = "2.7.2"
     val springDependencyManagementVersion = "1.0.12.RELEASE"
@@ -7,6 +9,7 @@ plugins {
 
     id("org.springframework.boot") version springBootVersion
     id("io.spring.dependency-management") version springDependencyManagementVersion
+    id("jacoco")
     kotlin("jvm") version kotlinPluginVersion
     kotlin("plugin.spring") version kotlinPluginVersion
     kotlin("plugin.jpa") version kotlinPluginVersion
@@ -22,6 +25,7 @@ repositories {
 
 dependencies {
     val jacksonDataType = "2.13.3"
+    val mockitoKotlin = "4.0.0"
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -33,6 +37,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlin")
 }
 
 tasks.withType<KotlinCompile> {
@@ -44,4 +49,30 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+
+    extensions.configure(JacocoTaskExtension::class) {
+        setDestinationFile(file("$buildDir/jacoco/jacoco.exec"))
+    }
+
+    finalizedBy("jacocoTestReport")
+}
+
+tasks.jacocoTestReport {
+    dependsOn("test")
+    reports {
+        html.required.set(true)
+    }
+
+    finalizedBy("jacocoTestCoverageVerification")
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = "BRANCH"
+                minimum = requiredCodeCoverage
+            }
+        }
+    }
 }
