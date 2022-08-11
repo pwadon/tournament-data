@@ -10,7 +10,7 @@ class TournamentApiService(
     var tournamentApiCrudService: TournamentApiCrudService
 ) {
     fun createTournament(dataSource: DataSource, tournamentData: String): Tournament {
-        val tournamentDto = tournamentFactory.makeTournament(dataSource, tournamentData)
-        return tournamentApiCrudService.save(tournamentDto)
+        val tournament = tournamentFactory.makeTournament(dataSource, tournamentData)
+        return tournamentApiCrudService.save(tournament)
     }
 }

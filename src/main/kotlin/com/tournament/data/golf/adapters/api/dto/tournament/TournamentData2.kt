@@ -41,7 +41,7 @@ data class TournamentData2(
         return DataSource.DATA_SOURCE_2
     }
 
-    override fun mapTournamentAdditionalData(): Map<String, String> {
+    override fun mapTournamentAdditionalData(): Map<String, Any> {
         return mapOf("competitionName" to competitionName, "playerCount" to playerCount.toString())
     }
 }

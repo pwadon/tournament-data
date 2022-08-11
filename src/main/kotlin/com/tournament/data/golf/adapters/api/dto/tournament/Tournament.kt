@@ -11,5 +11,5 @@ interface Tournament {
     val hostCountry: String
     val numberOfRounds: Int
     val tournamentDataSource: DataSource
-//    val additionalData: Map<String, String>
+    val additionalData: Map<String, Any>
 }

@@ -14,7 +14,7 @@ data class TournamentData1(
     val endDate: String,
     val roundCount: Int
 ) : TournamentData() {
-    var dateFormat = SimpleDateFormat("dd/MM/yy")
+    private var dateFormat = SimpleDateFormat("dd/MM/yy")
 
     override fun mapExternalId(): String {
         return tournamentId
@@ -44,7 +44,7 @@ data class TournamentData1(
         return DataSource.DATA_SOURCE_1
     }
 
-    override fun mapTournamentAdditionalData(): Map<String, String> {
+    override fun mapTournamentAdditionalData(): Map<String, Any> {
         return mapOf("tournamentName" to tournamentName, "forecast" to forecast)
     }
 }

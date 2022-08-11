@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "5ce1772e-8dad-48c0-afc6-bd34ecc16d51",
+		"name": "GolfTournaments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15415796"
+	},
+	"item": [
+		{
+			"name": "createTournamentFromDatasource1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"tournamentId\": \"174638\",\r\n\t\"tournamentName\": \"Women's Open Championship\",\r\n\t\"forecast\": \"fair\",\r\n\t\"courseName\": \"Sunnydale Golf Course\",\r\n\t\"countryCode\": \"GB\",\r\n\t\"startDate\": \"09/07/21\",\r\n\t\"endDate\": \"13/07/21\",\r\n\t\"roundCount\": \"4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tournament/create?dataSource=DATA_SOURCE_1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tournament",
+						"create"
+					],
+					"query": [
+						{
+							"key": "dataSource",
+							"value": "DATA_SOURCE_1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTournamentFromDatasource2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tournamentUUID\":\"87fc6650-e114-4179-9aef-6a9a13030f80\",\r\n    \"golfCourse\":\"Happy Days Golf Club\",\r\n    \"competitionName\":\"South West Invitational\",\r\n    \"hostCountry\":\"United States Of America\",\r\n    \"epochStart\":\"1638349200\",\r\n    \"epochFinish\":\"1638468000\",\r\n    \"rounds\":\"2\",\r\n    \"playerCount\":\"35\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/tournament/create?dataSource=DATA_SOURCE_2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tournament",
+						"create"
+					],
+					"query": [
+						{
+							"key": "dataSource",
+							"value": "DATA_SOURCE_2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

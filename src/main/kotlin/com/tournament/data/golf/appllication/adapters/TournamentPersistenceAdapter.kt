@@ -1,4 +1,4 @@
-package com.tournament.data.golf.adapters.persistence.service.adapters
+package com.tournament.data.golf.appllication.adapters
 
 import com.tournament.data.golf.adapters.persistence.mappers.TournamentPoMapper
 import com.tournament.data.golf.adapters.persistence.repository.TournamentRepository

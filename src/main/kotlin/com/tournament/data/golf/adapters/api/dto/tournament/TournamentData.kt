@@ -13,8 +13,8 @@ abstract class TournamentData {
             golfCourseName = mapTournamentGolfCourseName(),
             hostCountry = mapTournamentHostCountry(),
             numberOfRounds = mapTournamentNumberOfRounds(),
-            tournamentDataSource = addTournamentDataSource()
-//            additionalData = mapTournamentAdditionalData()
+            tournamentDataSource = addTournamentDataSource(),
+            additionalData = mapTournamentAdditionalData()
         )
     }
     abstract fun mapExternalId(): String
@@ -24,5 +24,5 @@ abstract class TournamentData {
     abstract fun mapTournamentHostCountry(): String
     abstract fun mapTournamentNumberOfRounds(): Int
     abstract fun addTournamentDataSource(): DataSource
-    abstract fun mapTournamentAdditionalData(): Map<String, String>
+    abstract fun mapTournamentAdditionalData(): Map<String, Any>
 }
