@@ -9,6 +9,6 @@ data class TournamentDomain(
     val golfCourseName: String,
     val hostCountry: String,
     val numberOfRounds: Int,
-    val tournamentDataSource: DataSourceDomain
-//    val additionalData: Map<String, String>
+    val tournamentDataSource: DataSourceDomain,
+    val additionalData: Map<String, Any>
 )

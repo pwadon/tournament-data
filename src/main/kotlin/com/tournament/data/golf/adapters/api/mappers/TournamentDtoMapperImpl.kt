@@ -17,8 +17,8 @@ class TournamentDtoMapperImpl : TournamentDtoMapper {
             golfCourseName = tournament.golfCourseName,
             hostCountry = tournament.hostCountry,
             numberOfRounds = tournament.numberOfRounds,
-            tournamentDataSource = dataSourceToDataSourceDomain(tournament.tournamentDataSource)
-//            additionalData = tournament.additionalData
+            tournamentDataSource = DataSourceDomain.valueOf(tournament.tournamentDataSource.name),
+            additionalData = tournament.additionalData
         )
     }
 
@@ -30,22 +30,8 @@ class TournamentDtoMapperImpl : TournamentDtoMapper {
             golfCourseName = tournamentDomain.golfCourseName,
             hostCountry = tournamentDomain.hostCountry,
             numberOfRounds = tournamentDomain.numberOfRounds,
-            tournamentDataSource = dataSourceDomainToDataSource(tournamentDomain.tournamentDataSource)
-//            additionalData = tournamentDomain.additionalData
+            tournamentDataSource = DataSource.valueOf(tournamentDomain.tournamentDataSource.name),
+            additionalData = tournamentDomain.additionalData
         )
-    }
-
-    override fun dataSourceToDataSourceDomain(dataSource: DataSource): DataSourceDomain {
-        return when (dataSource) {
-            DataSource.DATA_SOURCE_1 -> DataSourceDomain.DATA_SOURCE_1
-            DataSource.DATA_SOURCE_2 -> DataSourceDomain.DATA_SOURCE_2
-        }
-    }
-
-    override fun dataSourceDomainToDataSource(dataSourceDomain: DataSourceDomain): DataSource {
-        return when (dataSourceDomain) {
-            DataSourceDomain.DATA_SOURCE_1 -> DataSource.DATA_SOURCE_1
-            DataSourceDomain.DATA_SOURCE_2 -> DataSource.DATA_SOURCE_2
-        }
     }
 }
