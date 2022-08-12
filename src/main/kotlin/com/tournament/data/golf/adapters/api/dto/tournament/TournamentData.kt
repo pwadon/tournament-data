@@ -5,7 +5,7 @@ import java.time.Instant
 
 abstract class TournamentData {
 
-    fun createTournament(): TournamentDto {
+    fun createTournament(): Tournament {
         return TournamentDto(
             externalId = mapExternalId(),
             tournamentStartDate = mapTournamentStartDate(),

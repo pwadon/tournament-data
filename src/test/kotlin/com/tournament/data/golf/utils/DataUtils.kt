@@ -11,8 +11,8 @@ import java.time.Instant
 import java.util.UUID
 
 var externalId = "testExternalId"
-var tournamentStartDate = Instant.now().minusSeconds(12000)
-var tournamentEndDate = Instant.now().plusSeconds(12000)
+var tournamentStartDate: Instant = Instant.now().minusSeconds(12000)
+var tournamentEndDate: Instant = Instant.now().plusSeconds(12000)
 var golfCourseName = "testCourseName"
 var hostCountry = "testHostCountry"
 var numberOfRounds = 10

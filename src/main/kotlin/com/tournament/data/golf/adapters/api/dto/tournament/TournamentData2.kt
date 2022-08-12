@@ -2,6 +2,7 @@ package com.tournament.data.golf.adapters.api.dto.tournament
 
 import com.tournament.data.golf.adapters.api.dto.dataSource.DataSource
 import java.time.Instant
+import java.util.UUID
 
 data class TournamentData2(
     val tournamentUUID: String,
@@ -14,7 +15,7 @@ data class TournamentData2(
     val playerCount: Int
 ) : TournamentData() {
     override fun mapExternalId(): String {
-        return tournamentUUID
+        return UUID.fromString(tournamentUUID).toString()
     }
 
     override fun mapTournamentStartDate(): Instant {
