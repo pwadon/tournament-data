@@ -25,7 +25,7 @@ You can check saved data in your running local database instance.
 
 a) Add another DataSource enum to DataSource, DataSourcePo and DataSourceDomain enum classes
 
-b) create new TournamentDataXX data class in adapters/api/dto/tournament package. This class must extend abstract class
+b) create new TournamentData data class in adapters/api/dto/tournament package. This class must extend abstract class
 TournamentData and implement all required methods. The new data source must have minimum required data that can be mapped to:
 externalId: String
 tournamentStartDate: Instant
@@ -37,6 +37,6 @@ numberOfRounds: Int
 Add corresponding DataSource enum to addTournamentDataSource() method.
 All additional data should be added to mapTournamentAdditionalData() method.
 
-c) Add another case corresponding to new DataSource in makeTournament function in TournamentFactory class
+c) Add another case corresponding to new DataSource in makeTournament function in TournamentAdapter class
 
 After that you can add tournaments with new data source.

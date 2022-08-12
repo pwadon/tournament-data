@@ -9,7 +9,7 @@ import com.tournament.data.golf.adapters.api.dto.tournament.TournamentData2
 import org.springframework.stereotype.Service
 
 @Service
-class TournamentFactory {
+class TournamentAdapter {
     private val mapper = jacksonObjectMapper().registerModule(JavaTimeModule())
 
     fun makeTournament(dataSource: DataSource, tournamentData: String): Tournament {

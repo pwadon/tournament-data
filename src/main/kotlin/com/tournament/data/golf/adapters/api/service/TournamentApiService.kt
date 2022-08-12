@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class TournamentApiService(
-    var tournamentFactory: TournamentFactory,
+    var tournamentAdapter: TournamentAdapter,
     var tournamentApiCrudService: TournamentApiCrudService
 ) {
     fun createTournament(dataSource: DataSource, tournamentData: String): Tournament {
-        val tournament = tournamentFactory.makeTournament(dataSource, tournamentData)
+        val tournament = tournamentAdapter.makeTournament(dataSource, tournamentData)
         return tournamentApiCrudService.save(tournament)
     }
 }
