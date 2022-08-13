@@ -9,6 +9,8 @@ url: jdbc:postgresql://localhost:5432/postgres
 user: postgres
 password: postgres
 
+To build application with tests start Docker to pass test containers requirements.
+
 Running the application: 
 Start main method in TournamentDataApplication.kt class
 
