@@ -1,7 +1,8 @@
-package com.tournament.data.golf.appllication.adapters
+package com.tournament.data.golf.unit.application.adapters
 
 import com.tournament.data.golf.adapters.persistence.mappers.TournamentPoMapper
 import com.tournament.data.golf.adapters.persistence.repository.TournamentRepository
+import com.tournament.data.golf.appllication.adapters.TournamentPersistenceAdapter
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentPoObject
 import org.junit.jupiter.api.Assertions.assertEquals

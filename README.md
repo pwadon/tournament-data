@@ -38,5 +38,5 @@ Add corresponding DataSource enum to addTournamentDataSource() method.
 All additional data should be added to mapTournamentAdditionalData() method.
 
 c) Add another case corresponding to new DataSource in makeTournament function in TournamentAdapter class
-
+d) Add enum to data_source table in database
 After that you can add tournaments with new data source.

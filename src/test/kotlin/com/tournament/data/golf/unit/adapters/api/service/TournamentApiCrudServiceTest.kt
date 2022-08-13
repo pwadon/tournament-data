@@ -1,6 +1,7 @@
-package com.tournament.data.golf.adapters.api.service
+package com.tournament.data.golf.unit.adapters.api.service
 
 import com.tournament.data.golf.adapters.api.mappers.TournamentDtoMapperImpl
+import com.tournament.data.golf.adapters.api.service.TournamentApiCrudService
 import com.tournament.data.golf.domain.ports.primary.TournamentCrudPort
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentDtoObject

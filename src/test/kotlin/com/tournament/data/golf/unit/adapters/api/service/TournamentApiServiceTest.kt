@@ -1,6 +1,9 @@
-package com.tournament.data.golf.adapters.api.service
+package com.tournament.data.golf.unit.adapters.api.service
 
 import com.tournament.data.golf.adapters.api.dto.dataSource.DataSource
+import com.tournament.data.golf.adapters.api.service.TournamentAdapter
+import com.tournament.data.golf.adapters.api.service.TournamentApiCrudService
+import com.tournament.data.golf.adapters.api.service.TournamentApiService
 import com.tournament.data.golf.utils.createTournamentDtoObject
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

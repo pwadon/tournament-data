@@ -1,5 +1,7 @@
-package com.tournament.data.golf.appllication.adapters
+package com.tournament.data.golf.unit.application.adapters
 
+import com.tournament.data.golf.appllication.adapters.TournamentCrudAdapter
+import com.tournament.data.golf.appllication.adapters.TournamentPersistenceAdapter
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

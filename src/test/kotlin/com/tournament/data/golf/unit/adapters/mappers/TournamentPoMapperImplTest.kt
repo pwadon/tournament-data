@@ -1,6 +1,7 @@
-package com.tournament.data.golf.adapters.persistence.mappers
+package com.tournament.data.golf.unit.adapters.mappers
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.tournament.data.golf.adapters.persistence.mappers.TournamentPoMapperImpl
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentPoObject
 import org.json.JSONObject

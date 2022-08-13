@@ -1,5 +1,6 @@
-package com.tournament.data.golf.adapters.api.mappers
+package com.tournament.data.golf.unit.adapters.api.mappers
 
+import com.tournament.data.golf.adapters.api.mappers.TournamentDtoMapperImpl
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentDtoObject
 import org.junit.jupiter.api.Assertions.assertEquals
