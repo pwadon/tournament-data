@@ -32,6 +32,12 @@ var epochStart = "1638349200"
 var epochFinish = "1638468000"
 var rounds = "2"
 var playerCount = "35"
+var startDateInstant: Instant = Instant.parse("2021-07-08T22:00:00Z")
+var endDateInstant: Instant = Instant.parse("2021-07-12T22:00:00Z")
+var epochStartInstant: Instant = Instant.ofEpochSecond(1638349200)
+var epochEndInstant: Instant = Instant.ofEpochSecond(1638468000)
+var dataSource1 = DataSource.DATA_SOURCE_1
+var dataSource2 = DataSource.DATA_SOURCE_2
 
 fun createTournamentDomainObject(): TournamentDomain {
     return TournamentDomain(

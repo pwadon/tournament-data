@@ -1,10 +1,15 @@
-CREATE SCHEMA tournaments;
+CREATE SCHEMA IF NOT EXISTS tournaments;
 
 ---- ENUM TYPE data_source
-CREATE TYPE tournaments.data_source AS ENUM ('DATA_SOURCE_1', 'DATA_SOURCE_2');
+DO '
+BEGIN
+    CREATE TYPE tournaments.data_source AS ENUM (''DATA_SOURCE_1'', ''DATA_SOURCE_2'');
+EXCEPTION
+    WHEN duplicate_object THEN null;
+END ';
 
 ---- TABLE tournament
-CREATE TABLE tournaments.golf_tournament
+CREATE TABLE IF NOT EXISTS tournaments.golf_tournament
 (
     id  UUID    NOT NULL ,
     external_id VARCHAR(255) NOT NULL ,
@@ -17,4 +22,4 @@ CREATE TABLE tournaments.golf_tournament
     additional_data VARCHAR(255) NOT NULL ,
 
     CONSTRAINT pk_tournament_id PRIMARY KEY (id)
-);
+    );

@@ -1,16 +1,20 @@
 package com.tournament.data.golf.unit.adapters.api.service
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException
-import com.tournament.data.golf.adapters.api.dto.dataSource.DataSource
 import com.tournament.data.golf.adapters.api.service.TournamentAdapter
 import com.tournament.data.golf.utils.competitionName
 import com.tournament.data.golf.utils.countryCode
 import com.tournament.data.golf.utils.courseName
 import com.tournament.data.golf.utils.createDataSource1PayloadString
 import com.tournament.data.golf.utils.createDataSource2PayloadString
+import com.tournament.data.golf.utils.dataSource1
+import com.tournament.data.golf.utils.dataSource2
 import com.tournament.data.golf.utils.endDate
+import com.tournament.data.golf.utils.endDateInstant
+import com.tournament.data.golf.utils.epochEndInstant
 import com.tournament.data.golf.utils.epochFinish
 import com.tournament.data.golf.utils.epochStart
+import com.tournament.data.golf.utils.epochStartInstant
 import com.tournament.data.golf.utils.forecast
 import com.tournament.data.golf.utils.golfCourse
 import com.tournament.data.golf.utils.hostCountry
@@ -18,6 +22,7 @@ import com.tournament.data.golf.utils.playerCount
 import com.tournament.data.golf.utils.roundCount
 import com.tournament.data.golf.utils.rounds
 import com.tournament.data.golf.utils.startDate
+import com.tournament.data.golf.utils.startDateInstant
 import com.tournament.data.golf.utils.tournamentId
 import com.tournament.data.golf.utils.tournamentName
 import com.tournament.data.golf.utils.tournamentUUID
@@ -26,25 +31,15 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import java.lang.IllegalArgumentException
 import java.text.ParseException
-import java.time.Instant
 
-@SpringBootTest
+@WebMvcTest(TournamentAdapter::class)
 internal class TournamentAdapterTest(
     @Autowired
     var tournamentAdapter: TournamentAdapter
 ) {
-
-    private var dataSource1 = DataSource.DATA_SOURCE_1
-
-    private var dataSource2 = DataSource.DATA_SOURCE_2
-
-    private var startDateInstant = Instant.parse("2021-07-08T22:00:00Z")
-    private var endDateInstant = Instant.parse("2021-07-12T22:00:00Z")
-    private var epochStartInstant = Instant.ofEpochSecond(1638349200)
-    private var epochEndInstant = Instant.ofEpochSecond(1638468000)
 
     @Test
     fun makeTournamentShouldCreateTournamentFromDataSource1() {

@@ -5,12 +5,12 @@ import org.testcontainers.containers.JdbcDatabaseContainer
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.utility.DockerImageName
 
-//@Suppress("UtilityClassWithPublicConstructor")
+@Suppress("UtilityClassWithPublicConstructor")
 @TestConfiguration
 class LocalPostgresContainer {
     companion object {
         private val db = postgres("postgres:13-alpine") {
-            withDatabaseName("tournaments")
+            withDatabaseName("db")
             withUsername("postgres")
             withPassword("postgres")
             withInitScript("schema.sql")
