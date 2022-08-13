@@ -1,5 +1,6 @@
-package com.tournament.data.golf.adapters.api.mappers
+package com.tournament.data.golf.unit.adapters.api.mappers
 
+import com.tournament.data.golf.adapters.api.mappers.TournamentDtoMapperImpl
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentDtoObject
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -7,10 +8,10 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.whenever
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.SpyBean
 
-@SpringBootTest
+@WebMvcTest(TournamentDtoMapperImpl::class)
 internal class TournamentDtoMapperImplTest {
 
     @SpyBean

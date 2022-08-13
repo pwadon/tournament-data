@@ -1,15 +1,17 @@
-package com.tournament.data.golf.appllication.adapters
+package com.tournament.data.golf.unit.application.adapters
 
+import com.tournament.data.golf.appllication.adapters.TournamentCrudAdapter
+import com.tournament.data.golf.appllication.adapters.TournamentPersistenceAdapter
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 
-@SpringBootTest
+@WebMvcTest(TournamentCrudAdapter::class)
 internal class TournamentCrudAdapterTest(
     @Autowired
     private var tournamentCrudAdapter: TournamentCrudAdapter

@@ -1,6 +1,7 @@
-package com.tournament.data.golf.adapters.api.service
+package com.tournament.data.golf.unit.adapters.api.service
 
 import com.tournament.data.golf.adapters.api.mappers.TournamentDtoMapperImpl
+import com.tournament.data.golf.adapters.api.service.TournamentApiCrudService
 import com.tournament.data.golf.domain.ports.primary.TournamentCrudPort
 import com.tournament.data.golf.utils.createTournamentDomainObject
 import com.tournament.data.golf.utils.createTournamentDtoObject
@@ -9,10 +10,10 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 
-@SpringBootTest
+@WebMvcTest(TournamentApiCrudService::class)
 internal class TournamentApiCrudServiceTest(
     @Autowired
     private var tournamentApiCrudService: TournamentApiCrudService

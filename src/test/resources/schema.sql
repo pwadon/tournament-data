@@ -22,4 +22,4 @@ CREATE TABLE IF NOT EXISTS tournaments.golf_tournament
     additional_data VARCHAR(255) NOT NULL ,
 
     CONSTRAINT pk_tournament_id PRIMARY KEY (id)
-);
+    );

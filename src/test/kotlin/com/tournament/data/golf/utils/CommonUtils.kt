@@ -10,13 +10,34 @@ import com.tournament.data.golf.domain.model.TournamentDomain
 import java.time.Instant
 import java.util.UUID
 
-var externalId = "testExternalId"
+var externalId = "174638"
 var tournamentStartDate: Instant = Instant.now().minusSeconds(12000)
 var tournamentEndDate: Instant = Instant.now().plusSeconds(12000)
-var golfCourseName = "testCourseName"
-var hostCountry = "testHostCountry"
+var golfCourseName = "Sunnydale Golf Course"
+var hostCountry = "United States Of America"
 var numberOfRounds = 10
 var additionalData = mapOf("testData1" to 1, "testData2" to "testData2")
+var tournamentId = "174638"
+var tournamentName = "Women's Open Championship"
+var forecast = "fair"
+var courseName = "Sunnydale Golf Course"
+var countryCode = "GB"
+var startDate = "09/07/21"
+var endDate = "13/07/21"
+var roundCount = "4"
+var tournamentUUID = "87fc6650-e114-4179-9aef-6a9a13030f80"
+var golfCourse = "Happy Days Golf Club"
+var competitionName = "South West Invitational"
+var epochStart = "1638349200"
+var epochFinish = "1638468000"
+var rounds = "2"
+var playerCount = "35"
+var startDateInstant: Instant = Instant.parse("2021-07-08T22:00:00Z")
+var endDateInstant: Instant = Instant.parse("2021-07-12T22:00:00Z")
+var epochStartInstant: Instant = Instant.ofEpochSecond(1638349200)
+var epochEndInstant: Instant = Instant.ofEpochSecond(1638468000)
+var dataSource1 = DataSource.DATA_SOURCE_1
+var dataSource2 = DataSource.DATA_SOURCE_2
 
 fun createTournamentDomainObject(): TournamentDomain {
     return TournamentDomain(
@@ -56,4 +77,35 @@ fun createTournamentPoObject(): TournamentPo {
         tournamentDataSource = DataSourcePo.DATA_SOURCE_1,
         additionalData = jacksonObjectMapper().writeValueAsString(additionalData)
     )
+}
+
+fun createDataSource1PayloadString(startDate: String, endDate: String, roundCount: String): String {
+    return "{\n" +
+        "\t\"tournamentId\": \"$tournamentId\",\n" +
+        "\t\"tournamentName\": \"$tournamentName\",\n" +
+        "\t\"forecast\": \"$forecast\",\n" +
+        "\t\"courseName\": \"$courseName\",\n" +
+        "\t\"countryCode\": \"$countryCode\",\n" +
+        "\t\"startDate\": \"$startDate\",\n" +
+        "\t\"endDate\": \"$endDate\",\n" +
+        "\t\"roundCount\": \"$roundCount\"\n" +
+        "}"
+}
+
+fun createDataSource2PayloadString(
+    tournamentUUID: String,
+    epochStart: String,
+    epochFinish: String,
+    rounds: String
+): String {
+    return "{\n" +
+        "    \"tournamentUUID\":\"$tournamentUUID\",\n" +
+        "    \"golfCourse\":\"$golfCourse\",\n" +
+        "    \"competitionName\":\"$competitionName\",\n" +
+        "    \"hostCountry\":\"$hostCountry\",\n" +
+        "    \"epochStart\":\"$epochStart\",\n" +
+        "    \"epochFinish\":\"$epochFinish\",\n" +
+        "    \"rounds\":\"$rounds\",\n" +
+        "    \"playerCount\":\"$playerCount\"\n" +
+        "}"
 }

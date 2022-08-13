@@ -1,10 +1,15 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val jacksonDataType = "2.13.3"
+val mockitoKotlin = "4.0.0"
+val testContainerVersion = "1.17.3"
+
 plugins {
     val springBootVersion = "2.7.2"
     val springDependencyManagementVersion = "1.0.12.RELEASE"
     val kotlinPluginVersion = "1.6.21"
 
+    idea
     id("org.springframework.boot") version springBootVersion
     id("io.spring.dependency-management") version springDependencyManagementVersion
     kotlin("jvm") version kotlinPluginVersion
@@ -21,9 +26,6 @@ repositories {
 }
 
 dependencies {
-    val jacksonDataType = "2.13.3"
-    val mockitoKotlin = "4.0.0"
-
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -35,6 +37,9 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlin")
+    testImplementation("org.testcontainers:postgresql:$testContainerVersion")
+    testImplementation("org.testcontainers:testcontainers:$testContainerVersion")
+    testImplementation("org.testcontainers:junit-jupiter:$testContainerVersion")
 }
 
 tasks.withType<KotlinCompile> {
